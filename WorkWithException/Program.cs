@@ -10,8 +10,9 @@ namespace WorkWithException
     {
         static void Main(string[] args)
         {
-            Exception exception = new Exception();
+            Exception exception = new Exception("Ошибка");
             exception.Data.Add("Дата создания исключения: ",DateTime.Now);
+            exception.HelpLink= "https://www.youtube.com";
         }
     }
 }
