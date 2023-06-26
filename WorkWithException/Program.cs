@@ -13,12 +13,12 @@ namespace WorkWithException
             try
             {
                 Console.WriteLine("Блок try сработал.");
-                throw new ArgumentOutOfRangeException();
+                throw new RankException();
             }
-            catch(ArgumentOutOfRangeException)
+            catch(Exception ex)
             {
                 Console.WriteLine("Блок catch сработал.");
-                Console.WriteLine("Вы вышли за пределы допустимых значений.");
+                Console.WriteLine(ex.GetType());
             }
             finally
             {
