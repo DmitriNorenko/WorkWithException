@@ -10,9 +10,21 @@ namespace WorkWithException
     {
         static void Main(string[] args)
         {
-            Exception exception = new Exception("Ошибка");
-            exception.Data.Add("Дата создания исключения: ",DateTime.Now);
-            exception.HelpLink= "https://www.youtube.com";
+            try
+            {
+                Console.WriteLine("Блок try сработал.");
+                throw new ArgumentOutOfRangeException();
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Блок catch сработал.");
+                Console.WriteLine("Вы вышли за пределы допустимых значений.");
+            }
+            finally
+            {
+                Console.WriteLine("Блок Finally сработал!");
+            }
+            Console.ReadKey();
         }
     }
 }
