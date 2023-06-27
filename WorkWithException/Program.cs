@@ -8,22 +8,36 @@ namespace WorkWithException
 {
     internal class Program
     {
-        public delegate void NumDelegate(int x, int y);
+        delegate void ShowMessageDelegate();
+        delegate int SumDelegate(int x, int y, int z);
+        delegate bool CheckLengthDelegate(string _row);
         static void Main(string[] args)
         {
-            NumDelegate numDelegate = WorkWithNums;
-            numDelegate += SumNums;
-            numDelegate(15, 7);
-            numDelegate -= SumNums;
-            numDelegate(15, 7);
+            ShowMessageDelegate showMessageDelegate = ShowMessage;
+            showMessageDelegate.Invoke();
+
+            SumDelegate sumDelegate = Sum;
+            int result = sumDelegate.Invoke(1, 30, 120);
+            Console.WriteLine(result);
+
+            CheckLengthDelegate checkLengthDelegate = CheckLength;
+            bool status = checkLengthDelegate.Invoke("skill_factory");
+            Console.WriteLine(status);
         }
-        public static void WorkWithNums(int x, int y)
+        public static void ShowMessage()
         {
-            Console.WriteLine(x - y);
+            Console.WriteLine("Hello World!");
         }
-        public static void SumNums(int x, int y)
+
+        public static int Sum(int a, int b, int c)
         {
-            Console.WriteLine(x + y);
+            return a + b + c;
+        }
+
+        public static bool CheckLength(string _row)
+        {
+            if (_row.Length > 3) return true;
+            return false;
         }
     }
 }
