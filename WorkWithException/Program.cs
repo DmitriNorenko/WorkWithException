@@ -8,23 +8,15 @@ namespace WorkWithException
 {
     internal class Program
     {
+        public delegate int NumDelegate(int x, int y);
         static void Main(string[] args)
         {
-            try
-            {
-                Console.WriteLine("Блок try сработал.");
-                throw new RankException();
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Блок catch сработал.");
-                Console.WriteLine(ex.GetType());
-            }
-            finally
-            {
-                Console.WriteLine("Блок Finally сработал!");
-            }
-            Console.ReadKey();
+            NumDelegate numDelegate = WorkWithNums;
+            Console.WriteLine(numDelegate(15,7));
+        }
+        public static int WorkWithNums(int x, int y)
+        {
+            return x - y;
         }
     }
 }
