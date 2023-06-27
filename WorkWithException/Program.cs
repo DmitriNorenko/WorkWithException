@@ -9,11 +9,12 @@ namespace WorkWithException
 {
     internal class Program
     {
-        delegate void ShowMessageDelegate(string _message);
+        delegate int RandomNumberDelegate();
         static void Main(string[] args)
         {
-            ShowMessageDelegate showMessageDelegate = (string message) => Console.WriteLine(message);
-            showMessageDelegate.Invoke("Hello World!");
+            RandomNumberDelegate randomNumberDelegate = () => new Random().Next(0, 100);
+            int result = randomNumberDelegate.Invoke();
+            Console.WriteLine(result);
             Console.Read();
         }
     }
