@@ -8,18 +8,20 @@ namespace WorkWithException
 {
     internal class Program
     {
-        public delegate int NumDelegate(int x, int y);
+        public delegate void NumDelegate(int x, int y);
         static void Main(string[] args)
         {
             NumDelegate numDelegate = WorkWithNums;
-            int result = numDelegate(15, 7);
-            Console.WriteLine(result);
-            int result2 = numDelegate.Invoke(15, 7);
-            Console.WriteLine(result2);
+            numDelegate += SumNums;
+            numDelegate(15, 7);
         }
-        public static int WorkWithNums(int x, int y)
+        public static void WorkWithNums(int x, int y)
         {
-            return x - y;
+            Console.WriteLine(x - y);
+        }
+        public static void SumNums(int x, int y)
+        {
+            Console.WriteLine(x + y);
         }
     }
 }
