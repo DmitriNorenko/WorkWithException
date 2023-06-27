@@ -8,14 +8,15 @@ namespace WorkWithException
 {
     internal class Program
     {
-        delegate void ShowMessageDelegate(string _message);
+        delegate int RandomNumberDelegate();
         static void Main(string[] args)
         {
-            ShowMessageDelegate showMessageDelegate = delegate (string message)
+            RandomNumberDelegate randomNumberDelegate = delegate ()
             {
-                Console.WriteLine(message);
+                return new Random().Next(0, 100);
             };
-            showMessageDelegate.Invoke("Hello World!");
+            int result = randomNumberDelegate.Invoke();
+            Console.WriteLine(result);
             Console.Read();
         }
     }
