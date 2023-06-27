@@ -14,6 +14,8 @@ namespace WorkWithException
             NumDelegate numDelegate = WorkWithNums;
             numDelegate += SumNums;
             numDelegate(15, 7);
+            numDelegate -= SumNums;
+            numDelegate(15, 7);
         }
         public static void WorkWithNums(int x, int y)
         {
