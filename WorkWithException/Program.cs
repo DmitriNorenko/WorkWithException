@@ -12,7 +12,10 @@ namespace WorkWithException
         static void Main(string[] args)
         {
             NumDelegate numDelegate = WorkWithNums;
-            Console.WriteLine(numDelegate(15,7));
+            int result = numDelegate(15, 7);
+            Console.WriteLine(result);
+            int result2 = numDelegate.Invoke(15, 7);
+            Console.WriteLine(result2);
         }
         public static int WorkWithNums(int x, int y)
         {
