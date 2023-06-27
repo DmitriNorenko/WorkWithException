@@ -9,21 +9,18 @@ namespace WorkWithException
 {
     internal class Program
     {
-        delegate Car CarInfo();
+        delegate void Parents(Child sun);
         static void Main(string[] args)
         {
-            CarInfo carInfo = lexus;
+            Parents parents = ShowParent;
+            parents.Invoke(new Child());
         }
-        public static Car car()
+        public static void ShowParent(Parent a)
         {
-            return null;
+            Console.WriteLine(a.GetType());
         }
-        public static Lexus lexus()
-        {
-            return null;
-        }
-        public class Car { }
-        public class Lexus : Car { }
+        public class Parent { }
+        public class Child : Parent { }
     }
 }
 
