@@ -9,14 +9,21 @@ namespace WorkWithException
 {
     internal class Program
     {
-        delegate int RandomNumberDelegate();
+        delegate Car CarInfo();
         static void Main(string[] args)
         {
-            RandomNumberDelegate randomNumberDelegate = () => new Random().Next(0, 100);
-            int result = randomNumberDelegate.Invoke();
-            Console.WriteLine(result);
-            Console.Read();
+            CarInfo carInfo = lexus;
         }
+        public static Car car()
+        {
+            return null;
+        }
+        public static Lexus lexus()
+        {
+            return null;
+        }
+        public class Car { }
+        public class Lexus : Car { }
     }
 }
 
